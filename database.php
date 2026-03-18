@@ -1,11 +1,10 @@
 <?php
-$host = 'shuttle.proxy.rlwy.net';
-$dbname = 'railway';
-$username = 'root';
-$password = 'jidKdJCZUveXJEemSJlYOxzmVlypmLPB';
-$port = 56851;
+$host = getenv('MYSQLHOST') ?: 'mysql.railway.internal';
+$dbname = getenv('MYSQLDATABASE') ?: 'railway';
+$username = getenv('MYSQLUSER') ?: 'root';
+$password = getenv('MYSQLPASSWORD') ?: 'jidKdJCZUveXJEemSJlYOxzmVlypmLPB';
+$port = getenv('MYSQLPORT') ?: '3306';
 
-// PHP Data Object (PDO)
 try {
     $pdo = new PDO(
         "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
